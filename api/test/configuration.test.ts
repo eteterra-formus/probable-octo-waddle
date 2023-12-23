@@ -13,7 +13,7 @@ describe('Configuration', () => {
     env              | url
     ${'development'} | ${'http://localhost:5000'}
     ${'test'}        | ${'https://example'}
-    ${'production'}  | ${'https://production'}
+    ${'production'}  | ${'https://probable-octo-waddle.ts.r.appspot.com'}
     `('returns the expected URL', ({ env, url }) => {
       expect(apiUrl({ NODE_ENV: env })).toEqual(url);
     });

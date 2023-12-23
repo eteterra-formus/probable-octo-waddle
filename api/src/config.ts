@@ -9,6 +9,6 @@ export const apiUrl = ({ NODE_ENV } = process.env) => {
   return {
     'development': 'http://localhost:5000',
     'test': 'https://example',
-    'production': 'https://production',
+    'production': 'https://probable-octo-waddle.ts.r.appspot.com',
   }[NODE_ENV];
 };

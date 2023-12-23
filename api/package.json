@@ -3,6 +3,9 @@
   "version": "0.0.1",
   "main": "src/index.ts",
   "license": "UNLICENSED",
+  "engines": {
+    "node": "18"
+  },
   "scripts": {
     "dev": "NODE_ENV=development nodemon src/index.ts",
     "build": "NODE_ENV=production tsc --project tsconfig.production.json && tsc-alias -p tsconfig.production.json",

@@ -1,0 +1,9 @@
+runtime: nodejs18
+
+service: default
+
+env_variables:
+  NODE_ENV: "production"
+  PORT: 8080
+
+entrypoint: "node ./dist/index.js"
