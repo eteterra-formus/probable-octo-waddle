@@ -1,26 +1,40 @@
 <script setup lang="ts">
+import { useContent } from '@/stores/content'
+import AppContentNode from '@/components/AppContentNode.vue'
+
+const store = useContent()
+store.load()
 </script>
 
 <template>
   <header>
-    <h1>Page Tree App</h1>
+    <h1>Hello World!</h1>
   </header>
 
-  <section>
-    Page Tree goes here
+  <div class="loader" v-if="!store.state.isReady">
+    loading..
+  </div>
+
+  <section v-else>
+    <AppContentNode v-for="node in store.state.nodes" :key="node.id" v-bind="node" />    
   </section>
 </template>
 
 <style scoped>
 header, section {
-  padding: 5em;
+  padding: 0 5em;
 }
 h1 {
   text-align: center;
-  font-size: 8em;
+  font-size: 2em;
 }
 section {
-  max-width: 860px;
+  max-width: 600px;
   margin: 0 auto;
+}
+.loader {
+  font-size: 2em;
+  text-align: center;
+  color: #333;
 }
 </style>
