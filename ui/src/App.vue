@@ -2,6 +2,7 @@
 import { useContent } from '@/stores/content'
 import AppContentNode from '@/components/AppContentNode.vue'
 import AppLoader from '@/components/AppLoader.vue'
+import AppHeading from '@/components/AppHeading.vue'
 
 const store = useContent()
 store.load()
@@ -9,7 +10,7 @@ store.load()
 
 <template>
   <header>
-    <h1>Hello World!</h1>
+    <AppHeading>Hello World!</AppHeading>
   </header>
 
   <AppLoader v-if="!store.state.isReady">
@@ -24,10 +25,6 @@ store.load()
 <style scoped>
 header, section {
   padding: 0 5em;
-}
-h1 {
-  text-align: center;
-  font-size: 2em;
 }
 section {
   max-width: 600px;
