@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { useContent } from '@/stores/content'
 import AppContentNode from '@/components/AppContentNode.vue'
+import AppLoader from '@/components/AppLoader.vue'
 
 const store = useContent()
 store.load()
@@ -11,9 +12,9 @@ store.load()
     <h1>Hello World!</h1>
   </header>
 
-  <div class="loader" v-if="!store.state.isReady">
+  <AppLoader v-if="!store.state.isReady">
     loading..
-  </div>
+  </AppLoader>
 
   <section v-else>
     <AppContentNode v-for="node in store.state.nodes" :key="node.id" v-bind="node" />    
@@ -31,10 +32,5 @@ h1 {
 section {
   max-width: 600px;
   margin: 0 auto;
-}
-.loader {
-  font-size: 2em;
-  text-align: center;
-  color: #333;
 }
 </style>
