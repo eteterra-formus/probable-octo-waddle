@@ -13,17 +13,16 @@ store.load()
     <AppHeading>Hello World!</AppHeading>
   </header>
 
-  <AppLoader v-if="!store.state.isReady">
-    loading..
-  </AppLoader>
+  <AppLoader v-if="!store.state.isReady"> loading.. </AppLoader>
 
   <section v-else>
-    <AppContentNode v-for="node in store.state.nodes" :key="node.id" v-bind="node" />    
+    <AppContentNode v-for="node in store.state.nodes" :key="node.id" v-bind="node" />
   </section>
 </template>
 
 <style scoped>
-header, section {
+header,
+section {
   padding: 0 5em;
 }
 section {
@@ -31,3 +30,4 @@ section {
   margin: 0 auto;
 }
 </style>
+@/stores/usePages

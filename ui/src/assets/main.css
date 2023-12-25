@@ -2,13 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Rubik+Doodle+Shadow&display=swap');
 
 body {
-    font-family: 'Just Another Hand', sans-serif;
-    color: rgba(0, 0, 0, 0.8);
-    letter-spacing: 0.05em;
-    font-size: 3em;
+  font-family: 'Just Another Hand', sans-serif;
+  color: rgba(0, 0, 0, 0.8);
+  letter-spacing: 0.05em;
+  font-size: 3em;
 }
 
 h1 {
-    font-family: 'Rubik Doodle Shadow', sans-serif;
-    font-weight: 400;
+  font-family: 'Rubik Doodle Shadow', sans-serif;
+  font-weight: 400;
 }

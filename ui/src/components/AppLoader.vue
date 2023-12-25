@@ -1,7 +1,7 @@
 <template>
-    <div class="loader">
-        <slot></slot>
-    </div>
+  <div class="loader">
+    <slot></slot>
+  </div>
 </template>
 
 <style scoped>
