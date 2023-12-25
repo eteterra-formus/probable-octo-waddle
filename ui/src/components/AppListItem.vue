@@ -1,10 +1,10 @@
 <script setup lang="ts">
-import type { ContentNode } from '@/api/content'
+import type { Page } from '@/types/content'
 
 interface Props {
   id: string
   name: string
-  children?: ContentNode[]
+  children?: Page[]
 }
 withDefaults(defineProps<Props>(), { children: () => [] })
 </script>
@@ -15,7 +15,7 @@ withDefaults(defineProps<Props>(), { children: () => [] })
     <span>{{ name }}</span>
   </div>
   <div class="children">
-    <AppContentNode v-for="node in children" :key="node.id" v-bind="node" />
+    <AppListItem v-for="page in children" :key="page.id" v-bind="page" />
   </div>
 </template>
 
