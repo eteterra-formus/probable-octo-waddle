@@ -19,11 +19,11 @@ class BadResponseData extends Error {
 }
 
 /**
- * @returns either a PageTree, or a Problem. 
- * 
+ * @returns either a PageTree, or a Problem.
+ *
  * does not raise an error.
- * 
- * both outcomes must be handled by the caller 
+ *
+ * both outcomes must be handled by the caller
  * using pattern matching on the return object.
  */
 export const getPages = () =>

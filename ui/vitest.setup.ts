@@ -1,7 +1,10 @@
 import { beforeEach, vi } from 'vitest'
 
 vi.mock('@/api/http', () => ({
-    client: { get: vi.fn() }
+    client: { 
+        get: vi.fn(),
+        request: vi.fn() 
+    }
 }))
 
 beforeEach(() => {
