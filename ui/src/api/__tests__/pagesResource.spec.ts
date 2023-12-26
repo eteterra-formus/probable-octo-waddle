@@ -29,11 +29,20 @@ describe('pages resource', () => {
       })
     })
 
-    describe('when there is unexpected response data', () => {
+    describe('when page data is missing from response', () => {
       it('becomes a problem', async () => {
         mockedGet.mockResolvedValue({ data: { foo: 'bar' } } as AxiosResponse)
         const response = (await getPages()) as Problem
         expect(response.details).toEqual('Bad Response: page data is missing.')
+      })
+    })
+
+    describe('when page data in response is invalid', () => {
+      it('becomes a problem', async () => {
+        const invalidPageTree = [{ foo: 'bar' }]
+        mockedGet.mockResolvedValue({ data: { nodes: invalidPageTree } } as AxiosResponse)
+        const response = (await getPages()) as Problem
+        expect(response.details).toEqual('Bad Response: page data is invalid.')
       })
     })
   })

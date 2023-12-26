@@ -21,7 +21,6 @@ const names = [
 const randomItemFrom = (items: string[]) => items[Math.floor(Math.random() * items.length)]
 
 export interface MakePage {
-  children?: Page[]
   n?: number
 }
 /**
@@ -30,8 +29,9 @@ export interface MakePage {
  *
  * @param n automatically creates a number of child pages.
  */
-export const makePage = ({ children = [], n = 0 }: MakePage): Page => {
-  if (children.length === 0 && n > 0) {
+export const makePage = ({ n = 0 }: MakePage): Page => {
+  const children = []
+  if (n > 0) {
     for (let i = 0; i < n; i++) {
       children.push(makePage({}))
     }

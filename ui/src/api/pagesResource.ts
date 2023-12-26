@@ -1,6 +1,6 @@
 import { client } from '@/api/http'
 import type { AxiosError } from 'axios'
-import type { Page, PageTree } from '@/types/content'
+import { isPageTree, type Page, type PageTree } from '@/types/content'
 
 export interface GetPagesResponse {
   nodes: Page[]
@@ -30,11 +30,17 @@ export const getPages = () =>
   client
     .get<GetPagesResponse>('/pages')
     .then((result): PageTree => {
-      // check that pages are really valid
       if (result.data.nodes === undefined) {
         throw new BadResponseData('page data is missing')
       }
-      return { pages: result.data.nodes }
+
+      const pageTree = { pages: result.data.nodes }
+
+      if (!isPageTree(pageTree)) {
+        throw new BadResponseData('page data is invalid')
+      }
+
+      return pageTree
     })
     .catch((error: AxiosError): Problem => {
       if (error.name === 'BadResponseData') {

@@ -9,19 +9,23 @@ export interface PageStore {
   pages: Page[]
 }
 
+export const initialState = {
+  isReady: false,
+  error: '',
+  pages: []
+}
+
 export const usePages = defineStore('pages', () => {
-  const state = reactive<PageStore>({
-    isReady: false,
-    error: '',
-    pages: []
-  })
+  const state = reactive<PageStore>(initialState)
 
   async function load() {
     const result = await getPages()
 
     if ('pages' in result) {
       state.pages = result.pages
+      state.error = ''
     } else {
+      state.pages = []
       state.error = result.details
     }
 
