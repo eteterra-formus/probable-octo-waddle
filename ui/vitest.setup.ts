@@ -1,4 +1,5 @@
 import { beforeEach, vi } from 'vitest'
+import { setActivePinia, createPinia } from 'pinia'
 
 vi.mock('@/api/http', () => ({
     client: { 
@@ -9,4 +10,5 @@ vi.mock('@/api/http', () => ({
 
 beforeEach(() => {
     vi.clearAllMocks()
+    setActivePinia(createPinia())
 })

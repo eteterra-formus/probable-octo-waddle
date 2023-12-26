@@ -1,5 +1,4 @@
-import { setActivePinia, createPinia } from 'pinia'
-import { initialState, usePages } from '@/stores/pageStore'
+import { usePages } from '@/stores/pageStore'
 import { client } from '@/api/http'
 import { makePage } from '@/__tests__/factories/pages'
 
@@ -12,9 +11,7 @@ describe('page store', () => {
     const validResponse = { status: 200, data: { nodes: [makePage({})] } }
     mockedGet.mockResolvedValue(validResponse)
 
-    setActivePinia(createPinia())
     store = usePages()
-    store.$patch({ state: { ...initialState } })
   })
 
   describe('initially', () => {
