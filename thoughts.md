@@ -22,3 +22,12 @@
 - page ids are unique and don't repeat within the tree
 - page names are not unique
 - page names are reasonably short, can always truncate after 100 characters
+
+# Afterthoughts
+- i did the api first, then loading the data from the api, including runtime validation of the received data, then i coded up the page tree component last. I think this worked well
+- when you add an api into the mix, many things can start to go wrong. what if you lose internet connection? what if your request doesn't complete? what if the api was updated and no longer gives the response you expect? what if the browser hasn't been refreshed in a while and is running and old version of the UI? 
+- i wanted to show in this code how you can go about handling this additional complexity, so i've implemented things like request timeouts, retry and runtime validation of response data
+- I've tested the code throughout, I care about being able to run the tests and having high confidence that the app is still working
+- Given more time I would have liked to have added a simple deploy pipeline
+- I would have also added a single cypress test, this can be run as a smoketest after a deploy
+- I normally use vue testing library with msw, i tried using only vue test utils here as an experiment
