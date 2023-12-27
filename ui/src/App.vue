@@ -36,4 +36,7 @@ section {
   max-width: 600px;
   margin: 0 auto;
 }
+.error {
+  text-align: center;
+}
 </style>
