@@ -1,8 +1,10 @@
 import axios from 'axios'
 import { retryOnError } from './interceptors'
 
+const THREE_SECONDS = 3000
+
 export const client = axios.create({
-  timeout: 3,
+  timeout: THREE_SECONDS,
   baseURL: 'https://probable-octo-waddle.ts.r.appspot.com/'
 })
 
