@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Doodle+Shadow&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Just+Another+Hand&family=Rubik+Doodle+Shadow&display=swap');
+@import '@mdi/font/css/materialdesignicons.css';
 
 body {
   font-family: 'Just Another Hand', sans-serif;
