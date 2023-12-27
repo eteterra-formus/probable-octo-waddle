@@ -17,13 +17,13 @@ export const isPage = (value: any): value is Page => {
      * id and name are required and must be non-empty strings
      */
     typeof value.id === 'string' && value.id.length > 0,
-    typeof value.name === 'string' && value.id.length > 0,
+    typeof value.name === 'string' && value.name.length > 0,
 
     /**
      * children are optional, but when there are children,
      * they must also be valid pages.
      */
-    !!value.children && value.children.every(isPage)
+    !value.children || value.children.every(isPage)
   ]
   return invariants.every((invariant) => invariant === true)
 }
