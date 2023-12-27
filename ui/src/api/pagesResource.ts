@@ -14,7 +14,6 @@ class BadResponseData extends Error {
   constructor(message: string) {
     super(message)
     this.name = this.constructor.name
-    Error.captureStackTrace(this, this.constructor)
   }
 }
 
@@ -43,6 +42,7 @@ export const getPages = () =>
       return pageTree
     })
     .catch((error: AxiosError): Problem => {
+      console.error(error.message, error)
       if (error.name === 'BadResponseData') {
         return { details: `Bad Response: ${error.message}.` }
       } else if (error.response) {
