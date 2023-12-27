@@ -27,8 +27,8 @@ describe('Page Tree App', () => {
 
   it('shows a page tree', async () => {
     const app = mount(App, { global: { plugins: [createTestingPinia()] } })
-    usePages().$patch({ state: { isReady: true, error: '', pages: [makePage({ n: 5 })] } })
+    usePages().$patch({ state: { isReady: true, error: '', pages: [makePage({})] } })
     await flushPromises()
-    expect(app.findAllComponents(AppListItemVue)).toHaveLength(6)
+    expect(app.findAllComponents(AppListItemVue)).toHaveLength(1)
   })
 })

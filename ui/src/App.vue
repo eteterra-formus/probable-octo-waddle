@@ -11,7 +11,7 @@ store.load()
   <div class="app-container">
     <AppHeading>Hello World!</AppHeading>
 
-    <p v-if="!store.state.isReady"> loading.. </p>
+    <p v-if="!store.state.isReady">loading..</p>
 
     <p class="error" v-if="store.state.isReady && store.state.error">{{ store.state.error }}</p>
 
